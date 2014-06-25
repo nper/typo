@@ -10,6 +10,11 @@ class Category < ActiveRecord::Base
 
   default_scope :order => 'name ASC'
 
+  def self.get_or_build_category id = nill
+    return Category.find(id) if id
+    category = Category.new
+  end
+
   module Finders
     def find_all_with_article_counters(maxcount=nil)
       self.find_by_sql([%{
