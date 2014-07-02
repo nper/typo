@@ -430,7 +430,7 @@ class Article < Content
           self.extended = other_article.extended
         end
       end
-        
+
       self.comments += other_article.comments
       self.save
       self
