@@ -30,6 +30,10 @@ module NavigationHelpers
       category = Category.find_by_name($1)
       "/admin/categories/edit/#{category.id}"
 
+    when /^the edit page for article "([^"]+)"$/
+      article = Article.find_by_title($1)
+      "/admin/content/edit/#{article.id}"
+
     else
       begin
         page_name =~ /^the (.*) page$/
